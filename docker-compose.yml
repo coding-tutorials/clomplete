@@ -1,6 +1,13 @@
 version: "3.7"
 services:
-  postgres-database:
+  producer:
+    image: clojure:openjdk-8-lein
+    volumes:
+      - "./producer:/producer"
+    working_dir: /producer
+    command: lein run
+
+  database:
     image: postgres:11
     environment:
       POSTGRES_USER: root
