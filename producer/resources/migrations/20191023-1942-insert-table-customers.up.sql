@@ -1,9 +1,3 @@
-/*
-10 clientes
-10 produtos
-5 orders
-*/
-
 INSERT INTO customers VALUES
 (
   'bce8f025-2894-470f-8b69-da230afbdb4c',

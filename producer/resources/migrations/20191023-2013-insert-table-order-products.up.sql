@@ -1,10 +1,3 @@
-/*
-id uuid NOT NULL PRIMARY KEY,
-order_id uuid NOT NULL,
-product_id uuid NOT NULL,
-*/
-
-
 INSERT INTO order_products VALUES
 (
   '841cf0f2-ff76-4717-8bc8-3bafa411d5c3',
