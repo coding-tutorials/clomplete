@@ -3,7 +3,10 @@
                  ;[org.clojure/core.async "0.4.500"]
                  ;[aleph "0.4.6"]
                  [ragtime "0.8.0"]
-                 ;[org.clojure/java.jdbc "0.5.8"]
+                 [com.zaxxer/HikariCP "3.4.1"]
+                 [org.clojure/java.jdbc "0.7.10"]
+                 [honeysql "0.9.8"]
+                 [mount "0.1.16"]
                  [org.postgresql/postgresql "42.2.5"]]
   :aliases {"migrate"  ["run" "-m" "producer.database-migration/migrate"]
             "start"    ["do" "migrate," "run"]}
