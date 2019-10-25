@@ -1,4 +1,7 @@
-(ns producer.core)
+(ns producer.core
+  (:require [mount.core :as mount])
+  (:require [producer.orders-repository :as orders]))
+  ;(:require [producer.products-repository :as products-repository]))
   ; (:require [aleph.http :as http]
   ;           [clojure.core.async :as async]))
 
@@ -10,14 +13,16 @@
 ; (defn call-consumer []
 ;   (println (type (http/get "https://google.com"))))
 
-; (defn run-worker []
-;   (do
-;     (dotimes [_ 3] 
-;       (async/put! consumer-channel (call-consumer) read-response))
-;     (Thread/sleep 5000)))
-
+(defn run-worker []
+  (while true
+     (do
+       (orders/insert)
+       (println "order created")
+       (Thread/sleep 1000))))
 
 (defn -main [& args]
-  ; (while true
-  ;   (run-worker)))
-  (println "yep"))
+  (mount/start)
+  (run-worker))
+    
+  
+
