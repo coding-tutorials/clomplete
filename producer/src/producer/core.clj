@@ -1,6 +1,6 @@
-(ns orders-generator.core
+(ns producer.core
   (:require [mount.core :as mount])
-  (:require [orders-generator.orders-repository :as orders]))
+  (:require [producer.orders-repository :as orders]))
 
 (defn -main [& _]
   (mount/start)

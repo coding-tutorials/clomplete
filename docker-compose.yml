@@ -2,10 +2,11 @@ version: "3.7"
 services:
   producer:
     image: clojure:openjdk-8-lein
+    container_name: clomplete-producer
     volumes:
       - "./producer:/producer"
     working_dir: /producer
-    command: tail -F anything
+    command: lein run
     depends_on:
       - database
     environment:
@@ -14,12 +15,13 @@ services:
       DATABASE_NAME: "clomplete"
       DATABASE_USER: "root"
       DATABASE_PASSWORD: "root123"
-  orders-generator:
+  consumer:
     image: clojure:openjdk-8-lein
+    container_name: clomplete-consumer
     volumes:
-      - "./orders-generator:/orders-generator"
-    working_dir: /orders-generator
-    command: lein run
+      - "./consumer:/consumer"
+    working_dir: /consumer
+    command: tail -F xxx
     depends_on:
       - database
     environment:
@@ -30,6 +32,7 @@ services:
       DATABASE_PASSWORD: "root123"
   database:
     image: postgres:11
+    container_name: clomplete-database
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root123
@@ -39,7 +42,7 @@ services:
   zookeeper:
     image: confluentinc/cp-zookeeper:5.3.1
     hostname: zookeeper
-    container_name: zookeeper
+    container_name: clomplete-zookeeper
     ports:
       - "2181:2181"
     environment:
@@ -48,7 +51,7 @@ services:
   broker:
     image: confluentinc/cp-enterprise-kafka:5.3.1
     hostname: broker
-    container_name: broker
+    container_name: clomplete-broker
     depends_on:
       - zookeeper
     ports:
@@ -68,6 +71,7 @@ services:
       CONFLUENT_METRICS_ENABLE: 'true'
       CONFLUENT_SUPPORT_CUSTOMER_ID: 'anonymous'
   control-center:
+    container_name: clomplete-control-center
     image: confluentinc/cp-enterprise-control-center:5.3.1
     hostname: control-center
     container_name: control-center

@@ -1,6 +1,6 @@
-(ns orders-generator.products-repository
+(ns producer.products-repository
   (:require [honeysql.core :as sql])
-  (:require [orders-generator.database :as db]))
+  (:require [producer.database :as db]))
 
 (defn get-random-products-ids []
   (let [count-sql (first (sql/format {:select [:%count.*]

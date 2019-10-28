@@ -7,4 +7,4 @@
                  [mount "0.1.16"]
                  [org.clojure/data.json "0.2.6"]
                  [org.postgresql/postgresql "42.2.5"]]
-  :main ^:skip-aot orders-generator.core)
+  :main ^:skip-aot producer.core)

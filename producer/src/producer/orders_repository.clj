@@ -1,8 +1,8 @@
-(ns orders-generator.orders-repository
+(ns producer.orders-repository
   (:require [clojure.data.json :as json])
-  (:require [orders-generator.kafka :as kafka])
-  (:require [orders-generator.customers-repository :as customers])
-  (:require [orders-generator.products-repository :as products]))
+  (:require [producer.kafka :as kafka])
+  (:require [producer.customers-repository :as customers])
+  (:require [producer.products-repository :as products]))
  
 (defn insert []
   (let [id (java.util.UUID/randomUUID)
