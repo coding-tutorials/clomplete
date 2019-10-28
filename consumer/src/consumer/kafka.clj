@@ -1,6 +1,7 @@
 (ns consumer.kafka
   (:import [java.util Properties])
   (:import [org.apache.kafka.clients.consumer KafkaConsumer])
+  (:require [clojure.data.json :as json])
   (:require [mount.core :as mount]))
 
 (defn kafka-consumer []
@@ -16,5 +17,5 @@
 
 (defn pull-records [count]
   (->> (.poll consumer count)
-       (map #(.value %))))
+       (map #(json/read-str (.value %) :key-fn keyword))))
    
