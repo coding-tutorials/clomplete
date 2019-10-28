@@ -1,6 +1,5 @@
 (defproject producer "0.0.0-SNAPSHOT"
   :dependencies [[org.clojure/clojure "1.10.0"]
-                 [ragtime "0.8.0"]
                  [com.zaxxer/HikariCP "3.4.1"]
                  [org.apache.kafka/kafka-clients "2.3.0"]
                  [org.clojure/java.jdbc "0.7.10"]

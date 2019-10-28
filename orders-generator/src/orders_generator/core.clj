@@ -2,7 +2,7 @@
   (:require [mount.core :as mount])
   (:require [orders-generator.orders-repository :as orders]))
 
-(defn -main [& args]
+(defn -main [& _]
   (mount/start)
   (while true
     (do
