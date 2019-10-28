@@ -13,5 +13,5 @@
 (mount/defstate producer :start (kafka-producer))
 
 (defn send-message [key value]
- (.get (.send producer (ProducerRecord. "order" key value))))
+ (.get (.send producer (ProducerRecord. "orders" key value))))
 

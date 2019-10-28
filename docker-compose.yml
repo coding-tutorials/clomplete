@@ -5,7 +5,7 @@ services:
     volumes:
       - "./producer:/producer"
     working_dir: /producer
-    command: lein start
+    command: tail -F anything
     depends_on:
       - database
     environment:
@@ -19,7 +19,7 @@ services:
     volumes:
       - "./orders-generator:/orders-generator"
     working_dir: /orders-generator
-    command: tail -F anything
+    command: lein run
     depends_on:
       - database
     environment:

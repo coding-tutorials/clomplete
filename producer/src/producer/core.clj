@@ -1,12 +1,12 @@
 (ns producer.core
   (:require [mount.core :as mount])
-  (:require [producer.orders-repository :as orders]))
+  (:require [producer.kafka :as kafka]))
 
 (defn run-worker []
   (while true
      (do
-       (orders/insert)
-       (println "order created")
+       (let [records (kafka/pull-records 5)]
+         (println records))
        (Thread/sleep 1000))))
 
 (defn -main [& args]

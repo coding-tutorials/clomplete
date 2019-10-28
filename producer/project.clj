@@ -5,6 +5,8 @@
                  [org.clojure/java.jdbc "0.7.10"]
                  [honeysql "0.9.8"]
                  [mount "0.1.16"]
+                 [org.clojure/data.json "0.2.6"]
+                 [org.apache.kafka/kafka-clients "2.3.0"]
                  [org.postgresql/postgresql "42.2.5"]]
   :aliases {"migrate"  ["run" "-m" "producer.database-migration/migrate"]
             "start"    ["do" "migrate," "run"]}
