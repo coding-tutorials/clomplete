@@ -1,4 +1,4 @@
-(ns producer.database-migration
+(ns consumer.database-migration
   (:require [ragtime.jdbc :as jdbc]
             [ragtime.repl :as repl]))
 

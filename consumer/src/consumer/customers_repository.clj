@@ -1,5 +1,5 @@
-(ns producer.customers-repository
-  (:require [producer.database :as db])
+(ns consumer.customers-repository
+  (:require [consumer.database :as db])
   (:require [honeysql.core :as sql]))
 
 (defn get-random-customer-id []

@@ -1,7 +1,7 @@
-(ns producer.orders-repository
-  (:require [producer.database :as db])
-  (:require [producer.customers-repository :as customers])
-  (:require [producer.products-repository :as products])
+(ns consumer.orders-repository
+  (:require [consumer.database :as db])
+  (:require [consumer.customers-repository :as customers])
+  (:require [consumer.products-repository :as products])
   (:require [honeysql.core :as sql]))
 
 (defn insert []

@@ -1,4 +1,4 @@
-(ns producer.kafka
+(ns consumer.kafka
   (:import [java.util Properties])
   (:import [org.apache.kafka.clients.consumer KafkaConsumer])
   (:require [mount.core :as mount]))

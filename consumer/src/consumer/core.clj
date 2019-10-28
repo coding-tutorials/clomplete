@@ -1,6 +1,6 @@
-(ns producer.core
+(ns consumer.core
   (:require [mount.core :as mount])
-  (:require [producer.kafka :as kafka]))
+  (:require [consumer.kafka :as kafka]))
 
 (defn run-worker []
   (while true

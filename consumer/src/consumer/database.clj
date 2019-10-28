@@ -1,4 +1,4 @@
-(ns producer.database
+(ns consumer.database
   (:import [com.zaxxer.hikari HikariDataSource])
   (:require [mount.core :as mount])
   (:require [clojure.java.jdbc :as jdbc]))
