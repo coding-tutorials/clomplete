@@ -30,9 +30,4 @@
     (.close c)
     result))
 
-(defn execute! [statement]
-  (let [c {:datasource connection}
-        result (jdbc/execute! c [statement])]
-    result))
-
 

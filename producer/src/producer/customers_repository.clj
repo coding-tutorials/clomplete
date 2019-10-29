@@ -10,6 +10,3 @@
                    :where [:= :deleted_on nil]
                    :order-by [:%random]
                    :limit :1}))))
-
-    
-  

@@ -1,4 +1,4 @@
-(ns orders-generator.database
+(ns consumer.database
   (:import [com.zaxxer.hikari HikariDataSource])
   (:require [mount.core :as mount])
   (:require [clojure.java.jdbc :as jdbc]))
@@ -28,6 +28,11 @@
         s (jdbc/prepare-statement c (first statement))
         result (jdbc/query c [s])]
     (.close c)
+    result))
+
+(defn execute! [statement]
+  (let [c {:datasource connection}
+        result (jdbc/execute! c [statement])]
     result))
 
 

@@ -1,4 +1,4 @@
-(ns orders-generator.kafka
+(ns producer.kafka
   (:import [java.util Properties])
   (:import [org.apache.kafka.clients.producer KafkaProducer ProducerRecord])
   (:require [mount.core :as mount]))
@@ -13,5 +13,5 @@
 (mount/defstate producer :start (kafka-producer))
 
 (defn send-message [key value]
- (.get (.send producer (ProducerRecord. "order" key value))))
+ (.get (.send producer (ProducerRecord. "orders" key value))))
 

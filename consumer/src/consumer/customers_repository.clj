@@ -1,5 +1,5 @@
-(ns orders-generator.customers-repository
-  (:require [orders-generator.database :as db])
+(ns consumer.customers-repository
+  (:require [consumer.database :as db])
   (:require [honeysql.core :as sql]))
 
 (defn get-random-customer-id []
@@ -10,3 +10,6 @@
                    :where [:= :deleted_on nil]
                    :order-by [:%random]
                    :limit :1}))))
+
+    
+  
