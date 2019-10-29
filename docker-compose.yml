@@ -1,5 +1,23 @@
 version: "3.7"
 services:
+  middleware:
+    image: clojure:openjdk-8-lein
+    container_name: clomplete-middleware
+    volumes:
+      - "./middleware:/middleware"
+    working_dir: /middleware
+    command: tail -F xxx
+    depends_on:
+      - database
+    environment:
+      HTTP_PORT: "3000"
+      DATABASE_HOST: "database"
+      DATABASE_PORT: "5432"
+      DATABASE_NAME: "clomplete"
+      DATABASE_USER: "root"
+      DATABASE_PASSWORD: "root123"
+    ports:
+      - "3000:3000"
   producer:
     image: clojure:openjdk-8-lein
     container_name: clomplete-producer
@@ -9,6 +27,7 @@ services:
     command: lein run
     depends_on:
       - database
+      - broker
     environment:
       DATABASE_HOST: "database"
       DATABASE_PORT: "5432"
@@ -24,6 +43,7 @@ services:
     command: tail -F xxx
     depends_on:
       - database
+      - broker
     environment:
       DATABASE_HOST: "database"
       DATABASE_PORT: "5432"
