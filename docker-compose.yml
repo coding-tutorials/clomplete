@@ -1,5 +1,14 @@
 version: "3.7"
 services:
+  front-end:
+    image: nodejs:12
+    container_name: clomplete-front-end
+    volumes:
+      - "./front-end:/front-end"
+    working_dir: /front-end
+    command: npm start
+    ports:
+      - "3000:3000"
   producer:
     image: clojure:openjdk-8-lein
     container_name: clomplete-producer
