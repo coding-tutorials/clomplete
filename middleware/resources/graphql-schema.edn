@@ -1,0 +1,12 @@
+{:objects
+ {:Customer
+  {:fields
+   {:id {:type (non-null String)}
+    :name {:type (non-null String)}}}}
+
+ :queries
+ {:customer_by_id
+  {:type :Customer
+   :args
+   {:id {:type String}}
+   :resolve :query/customer-by-id}}}
