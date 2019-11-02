@@ -1,5 +1,14 @@
 version: "3.7"
 services:
+  front-end:
+    image: nodejs:12
+    container_name: clomplete-front-end
+    volumes:
+      - "./front-end:/front-end"
+    working_dir: /front-end
+    command: npm start
+    ports:
+      - "3000:3000"
   middleware:
     image: clojure:openjdk-8-lein
     container_name: clomplete-middleware
@@ -10,14 +19,14 @@ services:
     depends_on:
       - database
     environment:
-      HTTP_PORT: "3000"
+      HTTP_PORT: "3001"
       DATABASE_HOST: "database"
       DATABASE_PORT: "5432"
       DATABASE_NAME: "clomplete"
       DATABASE_USER: "root"
       DATABASE_PASSWORD: "root123"
     ports:
-      - "3000:3000"
+      - "3001:3001"
   producer:
     image: clojure:openjdk-8-lein
     container_name: clomplete-producer
