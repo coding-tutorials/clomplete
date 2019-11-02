@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 // import { ApolloClient } from 'apollo-client';
@@ -32,71 +31,39 @@ import './App.css';
 //   </ul>
 // }
 
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
+//import CssBaseline from '@material-ui/core/CssBaseline';
+//import Grid from '@material-ui/core/Grid';
+// import Container from '@material-ui/core/Container';
 
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
+import Tables from './Tables/Tables'
 
-const tableHeadRankingCustomers = () => 
-  <TableRow>
-    <TableCell>id</TableCell>
-    <TableCell align="right">Customer</TableCell>
-    <TableCell align="right">Orders</TableCell>
-    <TableCell align="right">Product(s)</TableCell>
-  </TableRow>
-
-const tableHeadRankingProducts = () => 
-  <TableRow>
-    <TableCell>id</TableCell>
-    <TableCell align="right">Product</TableCell>
-    <TableCell align="right">Orders</TableCell>
-    <TableCell align="right">Client(s)</TableCell>
-  </TableRow>
-
-const tableHeadRankingOrders = () => 
-  <TableRow>
-    <TableCell>id</TableCell>
-    <TableCell align="right">Customer</TableCell>
-    <TableCell align="right">Date</TableCell>
-    <TableCell align="right">Product(s)</TableCell>
-  </TableRow>
-
-const table = (tableHead) =>
-  <Table>
-    <TableHead>
-      {tableHead()}
-    </TableHead>
-    <TableBody>
-      {tableHead()}
-      {tableHead()}
-      {tableHead()}
-    </TableBody>
-  </Table>
-
-function App() {
-  return (
-    <div className="App">
-
-      <Grid container spacing={2}>
-        <Grid item xs={6}>
-          {table(tableHeadRankingOrders)}
-        </Grid>
-        <Grid item xs={3}>
-          {table(tableHeadRankingCustomers)}
-        </Grid>
-        <Grid item xs={3}>
-          {table(tableHeadRankingProducts)}
-        </Grid>
-      </Grid>
-      
-  
-    </div>
-  );
+const tables = {
+  tableOrders: {
+    title: ['id', 'customer', 'products', 'date'],
+    values: [
+      ['1', 'dunga', '3', '2019-01-02'],
+      ['2', 'metri', '1', '2018-01-02']
+    ]
+  },
+  tableCustomers: {
+    title: ['id', 'customer', 'quantity'],
+    values: [
+      ['1', 'dunga', '3'],
+      ['2', 'metri', '1']
+    ]
+  },
+  tableProducts: {
+    title: ['id', 'product', 'quantity'],
+    values: [
+      ['1', 'dunga', '3'],
+      ['2', 'metri', '1']
+    ]
+  }
 }
+
+const App = () =>
+  <div className="App">
+    <Tables tables={tables} />
+  </div>
 
 export default App;
